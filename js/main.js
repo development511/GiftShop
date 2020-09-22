@@ -88,14 +88,16 @@ Author:         Company Name
 });
 
 $('.one-time').slick({
-  dots: true,
+  dots: false,
   infinite: true,
   arrow:false,
-  speed: 3200,
+  speed: 5200,
   autoplay:true,
   autoplaySpeed: 400,
   slidesToShow: 1,
-  adaptiveHeight: true
+  adaptiveHeight: true,
+
+
 });
 
 $('.slider-for').slick({

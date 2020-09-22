@@ -19,69 +19,33 @@
     
    <!---Start-main-section-->
     <section class="ws-section-spacing deal-bg">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="deal one-time">
                     <!--item-->
                     <div class="deal-Banner">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-12">
-                                <div class="deal-banner-content">
-                                   
-                                        <h4>Check Out Our Latest</h4>
-                                        <h2>FASHION SALE</h2>
-                                        <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.</p>
-                                        <a href="#" class="slider-btn">Shop Now<i class="fas fa-arrow-right"></i></a>
-                                    
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="deal-banner-content">
+                                       
+                                            <h4>Check Out Our Latest</h4>
+                                            <h2>FASHION SALE</h2>
+                                            <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.</p>
+                                            <a href="#" class="slider-btn">Shop Now<i class="fas fa-arrow-right"></i></a>
+                                        
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 col-md-4">
-                                <div class="deal-img">
-                                    <img src="images/slider-img.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--item-->
-                    <div class="deal-Banner">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-12">
-                                <div class="deal-banner-content">
-                                   
-                                        <h4>Check Out Our Latest</h4>
-                                        <h2>FASHION SALE</h2>
-                                        <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.</p>
-                                        <a href="#" class="slider-btn">Shop Now<i class="fas fa-arrow-right"></i></a>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-md-4">
-                                <div class="deal-img">
-                                    <img src="images/slider-img.png" alt="">
+                                <div class="col-md-4 col-md-4">
+                                    <div class="deal-img">
+                                        <img src="images/slider-img.png" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--item-->
-                    <div class="deal-Banner">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-12">
-                                <div class="deal-banner-content">
-                                   
-                                        <h4>Check Out Our Latest</h4>
-                                        <h2>FASHION SALE</h2>
-                                        <p>Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.</p>
-                                        <a href="#" class="slider-btn">Shop Now<i class="fas fa-arrow-right"></i></a>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-md-4">
-                                <div class="deal-img">
-                                    <img src="images/slider-img.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  
                 </div>
             </div>
         </div>
