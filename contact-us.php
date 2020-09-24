@@ -84,7 +84,7 @@
                         <div class="col-lg-9">
                             <!--Contact-Form-->
                             <div class="contact-us-form">
-                                <form class="contact-form">
+                                <form class="contact-form" action="admin/action/contact.php" method="post">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
@@ -93,23 +93,23 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="Last-Name" placeholder="Last Name" name="Last-Name" required="">
+                                                <input type="text" class="form-control" id="Last-Name" placeholder="Last Name" name="lname" required="">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <input type="number" class="form-control" id="number" placeholder="Phone Number" name="Phone Number" required="">
+                                                <input type="number" class="form-control" id="number" placeholder="Phone Number" name="mobile" required="">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="Your Email" required="">
+                                                <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email" required="">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
-                                            <textarea class="form-control" rows="5" id="comment" placeholder="Your Comment"></textarea>
+                                            <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="Your Comment"></textarea>
                                         </div>
-                                        <button type="submit" class="contact-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                                        <button type="submit" name="submit" id="" class="contact-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
                                     </div>
                                 </form>
                             </div>

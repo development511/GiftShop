@@ -1,3 +1,7 @@
+<?php
+include_once('admin/include/config.php');
+include_once('admin/include/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,17 +54,30 @@
                 </div>
             </div>
             <div class="row">
+                <?php
+                        $query = "SELECT * FROM we_do order by id DESC";
+                        $result1 = mysqli_query($connect, $query);
+                        if (mysqli_num_rows($result1) > 0) {
+                        $i = 1;
+                        while ($row = mysqli_fetch_assoc($result1)) {
+                     ?>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <p class="who-we">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
-                    <p class="who-we">Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
-                    <p class="who-we">Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
-                    <p class="who-we">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.</p>
+                     
+                    <p class="who-we"><?php
+                        echo html_entity_decode($row['description']);
+                            ?></p>
+                   
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="who-img">
-                        <img src="images/abt-1.jpg" class="wow fadeInUp" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt="">
+                        <img src="GiftShop/images/<?php echo $row['image'];?>" class="wow fadeInUp" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt="">
                     </div>
                 </div>
+                  <?php
+                           $i++;
+                           }
+                        }
+                        ?>
             </div>
         </div>
     </section>
@@ -83,71 +100,35 @@
             <!--item-->
             <div class="row">
                 <div class="product-slider">
-                    <div class="product-card-bg">
+                     <?php
+                        $query = "SELECT * FROM portfolio_category order by id DESC";
+                        $result1 = mysqli_query($connect, $query);
+                        if (mysqli_num_rows($result1) > 0) {
+                        $i = 1;
+                        while ($row = mysqli_fetch_assoc($result1)) {
+                     ?>
+              <div class="col-md-4">
+                   
+                    <div class="product-card-bg " class="bg">
                         <div class="product-bg">
-                            <a href="#"><img src="images/1.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
+                            <a href="cat.php?cat_name=<?php echo $row['cat_name'];?>"><img src="images/product/<?php echo $row['image'];?>" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
                         </div>
                         <div class="product-content">
-                            <h5><a href="shop.php">Product Name</a></h5>
-                            <p>Product Type Description</p>
-                            <h4 class="price-text">$200</h4>
+                            <h5><a href="cat.php?cat_name=<?php echo $row['cat_name'];?>"><?php echo $row['cat_name'];?></a></h5>
+                            <p><?php echo $row['title'];?></p>
+                            <div class="p-button">
+                                <a href="cat.php?cat_name=<?php echo $row['cat_name'];?>">View More</a>
+                                <!-- <a href="#" class="active">Buy Now</a> -->
+                            </div>
                         </div>
                     </div>
-                    <!--item-->
-                    <div class="product-card-bg">
-                        <div class="product-bg">
-                            <a href="#"><img src="images/2.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                        </div>
-                        <div class="product-content">
-                            <h5><a href="shop.php">Product Name</a></h5>
-                            <p>Product Type Description</p>
-                            <h4 class="price-text">$200</h4>
-                        </div>
+                   
                     </div>
-                    <!--item-->
-                    <div class="product-card-bg">
-                        <div class="product-bg">
-                            <a href="#"><img src="images/3.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                        </div>
-                        <div class="product-content">
-                            <h5><a href="shop.php">Product Name</a></h5>
-                            <p>Product Type Description</p>
-                            <h4 class="price-text">$200</h4>
-                        </div>
-                    </div>
-                    <!--item-->
-                    <div class="product-card-bg">
-                        <div class="product-bg">
-                            <a href="#"><img src="images/4.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                        </div>
-                        <div class="product-content">
-                            <h5><a href="shop.php">Product Name</a></h5>
-                            <p>Product Type Description</p>
-                            <h4 class="price-text">$200</h4>
-                        </div>
-                    </div>
-                    <!--item-->
-                    <div class="product-card-bg">
-                        <div class="product-bg">
-                            <a href="#"><img src="images/5.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                        </div>
-                        <div class="product-content">
-                            <h5><a href="shop.php">Product Name</a></h5>
-                            <p>Product Type Description</p>
-                            <h4 class="price-text">$200</h4>
-                        </div>
-                    </div>
-                    <!--item-->
-                    <div class="product-card-bg">
-                        <div class="product-bg">
-                            <a href="#"><img src="images/7.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                        </div>
-                        <div class="product-content">
-                            <h5><a href="shop.php">Product Name</a></h5>
-                            <p>Product Type Description</p>
-                            <h4 class="price-text">$200</h4>
-                        </div>
-                    </div>
+                    <?php
+                           $i++;
+                           }
+                        }
+                        ?>
                     <!--item-->
                     <div class="product-card-bg">
                         <div class="product-bg">
@@ -171,25 +152,20 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="client-Slider">
+                      <?php
+                        $query = "SELECT * FROM client_logo order by id DESC";
+                        $result = mysqli_query($connect, $query);
+                        $i = 1;
+                        while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
                     <div class="client">
-                        <img src="images/client-1.png" alt="">
+                        <img src="GiftShop/images/<?php if (isset($row['image']) && !empty($row['image'])) {echo $row['image']; } ?>" alt="">
                     </div>
-                    <!--item-->
-                    <div class="client">
-                        <img src="images/client-2.png" alt="">
-                    </div>
-                    <!--item-->
-                    <div class="client">
-                        <img src="images/client-3.png" alt="">
-                    </div>
-                    <!--item-->
-                    <div class="client">
-                        <img src="images/client-4.png" alt="">
-                    </div>
-                    <!--item-->
-                    <div class="client">
-                        <img src="images/client-4.png" alt="">
-                    </div>
+                    <?php
+                        $i++;
+                        }
+                        ?>
+
                 </div>
             </div>
         </div>

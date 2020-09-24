@@ -1,3 +1,8 @@
+<?php
+include 'admin/include/connection.php';
+include 'admin/include/config.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,384 +64,43 @@
                             <div id="grid" class="tab-pane fade in active">
                                 <div class="row justify-content-sm-center">
                                     <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+                                     <?php
+                        $query = "SELECT * FROM portfolio order by id DESC";
+                        $result1 = mysqli_query($connect, $query);
+                        if (mysqli_num_rows($result1) > 0) {
+                        $i = 1;
+                        while ($row = mysqli_fetch_assoc($result1)) {
+                             $cat_name = $row['cat_name'];
+        $name = $row['name'];
+        $title = $row['title'];
+        $price = $row['price'];
+        $image = $row['image'];
+                     ?>
+                                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                         <div class="product-card">
                                             <div class="product-bg">
-                                                <a href="#"><img src="images/1.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
+                                                <a href="product-detail.php?name=<?php echo $name;?>"><img src="images/product/<?php echo $image;?>" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
                                             </div>
                                             <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
+                                                <h5><a href="product-detail.php?name=<?php echo $name;?>"><?php echo $name;?></a></h5>
+                                                <p><?php echo $title;?></p>
+                                                <h4 class="price-text">$<?php echo $price;?></h4>
                                                 <div class="p-button">
-                                                    <a href="cat-1.php">View More</a>
+                                                    <a href="cat.php?cat_name=<?php echo $cat_name;?>">View More</a>
                                                     <!-- <a href="#" class="active">Buy Now</a> -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/2.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-2.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/3.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-3.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/7.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-4.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/5.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-4.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/7.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-4.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/8.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-5.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/1.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-1.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/2.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-2.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/3.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-3.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/7.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-4.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
-                                        <div class="product-card">
-                                            <div class="product-bg">
-                                                <a href="#"><img src="images/5.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h5><a href="product-detail.php">Product Name</a></h5>
-                                                <p>Product Type Discription</p>
-                                                <h4 class="price-text">$200</h4>
-                                                <div class="p-button">
-                                                    <a href="cat-4.php">View More</a>
-                                                    <!-- <a href="#" class="active">Buy Now</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                 <?php
+                           $i++;
+                           }
+                        }
+                        ?>
+                             
                                 </div>
                             </div>
-                            <!--list-Products-->
-                            <div id="list" class="tab-pane fade">
-                                <div class="row">
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/7.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/8.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/1.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/2.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/3.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/4.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/5.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--item-->
-                                    <div class="col-lg-12">
-                                        <div class="list-border">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-5 col-sm-12">
-                                                    <div class="product-list-bg">
-                                                        <a href="#"><img src="images/7.png" class="wow zoomIn" data-wow-delay=".25s" data-wow-duration="1s"  data-wow-iteration="1" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-9 col-md-7 col-sm-12">
-                                                    <div class="product-list-content">
-                                                        <h5><a href="product-detail.php">Product Name</a></h5>
-                                                        <span>Product Type Discription</span>
-                                                        <h4 class="price-text">$200</h4>
-                                                        <p class="list-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-                                                        <a href="my-cart.php" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                  
                         </div>
                     </div>
                     <!---pagination-->
