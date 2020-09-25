@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2020 at 07:21 AM
+-- Generation Time: Sep 24, 2020 at 06:12 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `nik_tech`
+-- Database: `giftshop`
 --
 
 -- --------------------------------------------------------
@@ -145,7 +145,8 @@ INSERT INTO `client_logo` (`id`, `image`, `dt_created`) VALUES
 (27, '../../assets/img/client/16.jpg', '2020-07-28 03:36:15'),
 (28, '../../assets/img/client/17.jpg', '2020-07-28 03:36:20'),
 (29, '../../assets/img/client/18.jpg', '2020-07-28 03:36:24'),
-(30, '../../assets/img/client/19.jpg', '2020-07-28 03:36:32');
+(30, '../../assets/img/client/19.jpg', '2020-07-28 03:36:32'),
+(31, '../../images/5f6b76bde147eIMG_7017.JPG', '2020-09-23 09:54:29');
 
 -- --------------------------------------------------------
 
@@ -156,12 +157,20 @@ INSERT INTO `client_logo` (`id`, `image`, `dt_created`) VALUES
 CREATE TABLE `contact` (
   `id` int(10) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mobile` varchar(255) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `message` mediumtext NOT NULL,
+  `comment` mediumtext NOT NULL,
   `dt_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `lname`, `email`, `mobile`, `comment`, `dt_created`) VALUES
+(15, 'riya', 'sas', 'patelria288@gmail.com', '08155925891', 'wsWS', '2020-09-23 08:33:25'),
+(16, 'riya', 'sas', 'patelria288@gmail.com', '08155925891', 'aswdeawe', '2020-09-23 08:33:34');
 
 -- --------------------------------------------------------
 
@@ -172,8 +181,18 @@ CREATE TABLE `contact` (
 CREATE TABLE `home_slider` (
   `id` int(10) NOT NULL,
   `image` mediumtext NOT NULL,
+  `title` mediumtext NOT NULL,
   `dt_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `home_slider`
+--
+
+INSERT INTO `home_slider` (`id`, `image`, `title`, `dt_created`) VALUES
+(24, '../../images/banner/5f6b09319da9b53569.jpg', '<p>dfgsf</p>', '2020-09-23 02:07:05'),
+(25, '../../images/banner/5f6b0bfdeb9a653569.jpg', '<p>DFSF</p>', '2020-09-23 02:19:01'),
+(26, '../../images/banner/5f6b40485ea6153569.jpg', '<p>rwrwarswerserwer</p>', '2020-09-23 06:02:08');
 
 -- --------------------------------------------------------
 
@@ -183,17 +202,21 @@ CREATE TABLE `home_slider` (
 
 CREATE TABLE `inquiry` (
   `id` int(11) NOT NULL,
-  `c_name` varchar(255) NOT NULL,
-  `cus_name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `mobile` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `address` varchar(1000) NOT NULL,
-  `reference` varchar(1000) NOT NULL,
-  `It_Services` varchar(1000) NOT NULL,
-  `file_upload` varchar(20000) NOT NULL,
+  `product` varchar(1000) NOT NULL,
+  `comment` varchar(255) NOT NULL,
   `dt_created` datetime NOT NULL,
   `dt_updated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inquiry`
+--
+
+INSERT INTO `inquiry` (`id`, `name`, `mobile`, `email`, `product`, `comment`, `dt_created`, `dt_updated`) VALUES
+(385, 'riya', '08155925891', 'patelria288@gmail.com', 'efse', 'sdfsdf', '2020-09-23 09:53:14', '2020-09-23 16:23:14');
 
 -- --------------------------------------------------------
 
@@ -207,6 +230,7 @@ CREATE TABLE `portfolio` (
   `image` mediumtext NOT NULL,
   `name` varchar(10000) NOT NULL,
   `title` varchar(1000) NOT NULL,
+  `price` varchar(1000) NOT NULL,
   `dt_created` datetime NOT NULL DEFAULT current_timestamp(),
   `dt_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -215,19 +239,8 @@ CREATE TABLE `portfolio` (
 -- Dumping data for table `portfolio`
 --
 
-INSERT INTO `portfolio` (`id`, `cat_name`, `image`, `name`, `title`, `dt_created`, `dt_updated`) VALUES
-(11, 'WEB DESIGN', '../../assets/img/portfolio/5f2b95626087203.jpg', 'NATRAJ HOTEL', 'WEB DESIGN', '2020-08-06 10:47:48', '2020-08-06 05:30:10'),
-(12, 'WEB DESIGN', '../../assets/img/portfolio/5f2b957417b1108.jpg', 'THE GREEN DESERT', 'WEB DESIGN', '2020-08-06 10:48:38', '2020-08-06 05:30:28'),
-(13, 'WEB DESIGN', '../../assets/img/portfolio/5f2b95852c50804.jpg', 'GOLDEN AUTO WORLD', 'WEB DESIGN', '2020-08-06 10:49:08', '2020-08-06 05:30:45'),
-(14, 'WEB DESIGN', '../../assets/img/portfolio/5f2b9593647d605.jpg', 'ELECTRO LINE, POWER OF ENERGY SYSTEM', 'WEB DESIGN', '2020-08-06 10:49:39', '2020-08-06 05:30:59'),
-(15, 'WEB DESIGN', '../../assets/img/portfolio/5f2b95a8a733608.jpg', 'WINNERS STUDIO', 'WEB DESIGN', '2020-08-06 10:50:16', '2020-08-06 05:31:20'),
-(16, 'WEB DESIGN', '../../assets/img/portfolio/5f2b95de0830b02.jpg', 'VIBRANT WAVES INTERNATIONAL ACADEMY', 'WEB DESIGN', '2020-08-06 11:02:14', '2020-08-06 05:32:14'),
-(17, 'WEB DESIGN', '../../assets/img/portfolio/5f2b96ba696d608.jpg', 'GCS MEDICAL COLLEGE, HOSPITAL', 'WEB DESIGN', '2020-08-06 11:02:40', '2020-08-06 05:35:54'),
-(18, 'WEB DESIGN', '../../assets/img/portfolio/5f2b9654e1f1503.jpg', 'DR. K. C. PATEL', 'WEB DESIGN', '2020-08-06 11:03:21', '2020-08-06 05:34:12'),
-(19, 'WEB DESIGN', '../../assets/img/portfolio/5f2b96dc5d88d07.jpg', 'CREARTISAN CREATIVE GIFTINGS', 'WEB DESIGN', '2020-08-06 11:06:28', '2020-08-06 05:36:28'),
-(20, 'WEB DESIGN', '../../assets/img/portfolio/5f2b96f387e3b04.jpg', 'PANACHE BEAUTY SALON', 'WEB DESIGN', '2020-08-06 11:06:51', '2020-08-06 05:36:51'),
-(21, 'WEB DESIGN', '../../assets/img/portfolio/5f2b970dba30302.jpg', 'BANKO DESIGN', 'WEB DESIGN', '2020-08-06 11:07:17', '2020-08-06 05:37:17'),
-(22, 'WEB DESIGN', '../../assets/img/portfolio/5f2b98338142f04.jpg', 'STEGENGA  PARTNERS A PROFESSIONAL STUDIO', 'WEB DESIGN', '2020-08-06 11:07:45', '2020-08-06 05:42:11');
+INSERT INTO `portfolio` (`id`, `cat_name`, `image`, `name`, `title`, `price`, `dt_created`, `dt_updated`) VALUES
+(23, 'sdsds', '../../images/product/5f6b3b00803fd53569.jpg', 'nikunj', 'Together we make difference', '5999', '2020-09-23 05:39:36', '2020-09-23 12:09:36');
 
 -- --------------------------------------------------------
 
@@ -238,6 +251,8 @@ INSERT INTO `portfolio` (`id`, `cat_name`, `image`, `name`, `title`, `dt_created
 CREATE TABLE `portfolio_category` (
   `id` int(10) NOT NULL,
   `cat_name` mediumtext NOT NULL,
+  `title` varchar(1000) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `dt_created` datetime NOT NULL DEFAULT current_timestamp(),
   `dt_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -246,10 +261,10 @@ CREATE TABLE `portfolio_category` (
 -- Dumping data for table `portfolio_category`
 --
 
-INSERT INTO `portfolio_category` (`id`, `cat_name`, `dt_created`, `dt_updated`) VALUES
-(2, 'Mobile Application', '2020-07-29 10:31:34', '2020-08-06 04:55:51'),
-(3, 'Graphic Design', '2020-07-29 10:31:51', '2020-08-06 04:55:07'),
-(4, 'WEB DESIGN', '2020-07-29 10:32:10', '2020-08-06 04:54:03');
+INSERT INTO `portfolio_category` (`id`, `cat_name`, `title`, `image`, `dt_created`, `dt_updated`) VALUES
+(7, 'sdsds', 'Together we make difference', '../../images/product/5f6b44fb63728IMG_7017.JPG', '2020-09-23 03:51:46', '2020-09-23 00:52:11'),
+(9, 'sdsds', 'Together we make difference', '../../images/product/5f6b422716eb31234.JPG', '2020-09-23 06:10:07', '2020-09-23 12:40:07'),
+(10, 'static website', 'Together we make difference', '../../images/product/5f6b450980e19IMG_7224.JPG', '2020-09-23 06:22:25', '2020-09-23 12:52:25');
 
 -- --------------------------------------------------------
 
@@ -320,7 +335,7 @@ CREATE TABLE `we_do` (
 --
 
 INSERT INTO `we_do` (`id`, `description`, `image`, `dt_created`, `dt_updated`) VALUES
-(1, '&lt;p class=&quot;font-17 text-black&quot; style=&quot;margin-bottom: 30px; line-height: 30px; font-family: Exo, sans-serif; font-size: 17px !important;&quot;&gt;I heartily welcome you to The NikTech Solution. We are proud to be based in the state of Gujarat, India which has gifted some iconic brands to the world like Amul, Rasna, Nirma, Reliance, Adani just to name a few. I belong to a traditional Gujarati business family where entrepreneurship is the rule rather than the exception. From an early age, I have seen the thrills and challenges of running a successful business. I always aspired to follow my role models of successful women entrepreneurs.&lt;/p&gt;&lt;p class=&quot;font-17 text-black&quot; style=&quot;margin-bottom: 30px; line-height: 30px; font-family: Exo, sans-serif; font-size: 17px !important;&quot;&gt;Colors have always enthralled me and I can say with conviction that the intelligent use of colors in Design and Advertising has always given me that extra edge with Brands.&lt;/p&gt;&lt;p class=&quot;font-17 text-black&quot; style=&quot;margin-bottom: 30px; line-height: 30px; font-family: Exo, sans-serif; font-size: 17px !important;&quot;&gt;Apart from the intrinsic satisfaction of creative pursuit, my greatest accomplishment in the last 4 years has been the growth of the business profits of our clients, for whom we have built successful Brands.&lt;/p&gt;', '../../assets/img/we_do/whatwedo.gif', '2020-07-28 05:03:50', '2020-07-29 20:51:23');
+(1, '&lt;p class=&quot;font-17 text-black&quot; style=&quot;margin-bottom: 30px; line-height: 30px; font-family: Exo, sans-serif; font-size: 17px !important;&quot;&gt;I heartily welcome you to The NikTech Solution. We are proud to be based in the state of Gujarat, India which has gifted some iconic brands to the world like Amul, Rasna, Nirma, Reliance, Adani just to name a few. I belong to a traditional Gujarati business family where entrepreneurship is the rule rather than the exception. From an early age, I have seen the thrills and challenges of running a successful business. I always aspired to follow my role models of successful women entrepreneurs.&lt;/p&gt;&lt;p class=&quot;font-17 text-black&quot; style=&quot;margin-bottom: 30px; line-height: 30px; font-family: Exo, sans-serif; font-size: 17px !important;&quot;&gt;Colors have always enthralled me and I can say with conviction that the intelligent use of colors in Design and Advertising has always given me that extra edge with Brands.&lt;/p&gt;&lt;p class=&quot;font-17 text-black&quot; style=&quot;margin-bottom: 30px; line-height: 30px; font-family: Exo, sans-serif; font-size: 17px !important;&quot;&gt;Apart from the intrinsic satisfaction of creative pursuit, my greatest accomplishment in the last 4 years has been the growth of the business profits of our clients, for whom we have built successful Brands.dazdasd&lt;/p&gt;', '', '2020-07-28 05:03:50', '2020-09-22 20:45:02');
 
 --
 -- Indexes for dumped tables
@@ -436,37 +451,37 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `client_logo`
 --
 ALTER TABLE `client_logo`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `home_slider`
 --
 ALTER TABLE `home_slider`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `inquiry`
 --
 ALTER TABLE `inquiry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=385;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
 
 --
 -- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `portfolio_category`
 --
 ALTER TABLE `portfolio_category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `portfolio_content`
